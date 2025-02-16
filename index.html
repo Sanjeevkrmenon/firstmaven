@@ -1,17 +1,42 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!DOCTYPE html>
 <html>
- <head>
-  <title>Index of /maven/maven-3</title>
- </head>
- <body>
-<h1>Index of /maven/maven-3</h1>
-<pre><img src="/icons/blank.gif" alt="Icon "> <a href="?C=N;O=D">Name</a>                    <a href="?C=M;O=A">Last modified</a>      <a href="?C=S;O=A">Size</a>  <a href="?C=D;O=A">Description</a><hr><img src="/icons/back.gif" alt="[PARENTDIR]"> <a href="/maven/">Parent Directory</a>                             -   
-<img src="/icons/folder.gif" alt="[DIR]"> <a href="3.8.8/">3.8.8/</a>                  2023-03-14 11:46    -   
-<img src="/icons/folder.gif" alt="[DIR]"> <a href="3.9.4/">3.9.4/</a>                  2023-08-03 07:56    -   
-<img src="/icons/folder.gif" alt="[DIR]"> <a href="3.9.5/">3.9.5/</a>                  2023-10-04 20:19    -   
-<img src="/icons/folder.gif" alt="[DIR]"> <a href="3.9.6/">3.9.6/</a>                  2023-12-01 11:22    -   
-<img src="/icons/folder.gif" alt="[DIR]"> <a href="3.9.7/">3.9.7/</a>                  2024-05-25 13:50    -   
-<img src="/icons/folder.gif" alt="[DIR]"> <a href="3.9.8/">3.9.8/</a>                  2024-06-17 07:44    -   
-<img src="/icons/folder.gif" alt="[DIR]"> <a href="3.9.9/">3.9.9/</a>                  2024-08-17 18:45    -   
-<hr></pre>
-</body></html>
+<head>
+    <title>Login Page</title>
+    <script>
+        function registerUser() {
+            fetch('/auth/register', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    username: document.getElementById("reg-username").value,
+                    password: document.getElementById("reg-password").value
+                })
+            }).then(response => response.text())
+              .then(data => alert(data));
+        }
+
+        function loginUser() {
+            fetch('/auth/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    username: document.getElementById("login-username").value,
+                    password: document.getElementById("login-password").value
+                })
+            }).then(response => response.text())
+              .then(data => alert(data));
+        }
+    </script>
+</head>
+<body>
+    <h2>Register</h2>
+    <input id="reg-username" placeholder="Username">
+    <input id="reg-password" type="password" placeholder="Password">
+    <button onclick="registerUser()">Register</button>
+
+    <h2>Login</h2>
+    <input id="login-username" placeholder="Username">
+    <input id="login-password" type="password" placeholder="Password">
+    <button onclick="loginUser()">Login</button>
+</body>
+</html>
