@@ -4,9 +4,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller; // ADD THIS LINE
+import org.springframework.ui.Model;
 
 @SpringBootApplication
-@RestController
+@Controller
 public class App {
 
     @GetMapping("/")  // Changed to "/" (root)
@@ -14,9 +16,10 @@ public class App {
         return "Hello, World!";
     }
 
+
     @GetMapping("/login")
-    public String login() {
-        return "Hello, World!";
+    public String login(Model model) {
+        return "login"; // Returns the name of the template (login.html)
     }
 
     public static void main(String[] args) {
