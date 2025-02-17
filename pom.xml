@@ -4,7 +4,7 @@
     
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.example</groupId>
+    <groupId>com.mycompany</groupId>
     <artifactId>simple-java-maven-app</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
@@ -37,6 +37,9 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>com.mycompany.app.App</mainClass> <!-- Corrected the mainClass here -->
+                </configuration>
             </plugin>
         </plugins>
     </build>
